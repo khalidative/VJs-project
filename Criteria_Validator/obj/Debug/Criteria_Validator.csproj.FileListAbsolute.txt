@@ -7,3 +7,16 @@ C:\Users\khalid\source\repos\Criteria_Validator\Criteria_Validator\obj\Debug\Cri
 C:\Users\khalid\source\repos\Criteria_Validator\Criteria_Validator\obj\Debug\Criteria_Validator.csproj.GenerateResource.cache
 C:\Users\khalid\source\repos\Criteria_Validator\Criteria_Validator\obj\Debug\Criteria_Validator.exe
 C:\Users\khalid\source\repos\Criteria_Validator\Criteria_Validator\obj\Debug\Criteria_Validator.pdb
+C:\Users\khalid\source\repos\VJs-project\Criteria_Validator\bin\Debug\Criteria_Validator.exe.config
+C:\Users\khalid\source\repos\VJs-project\Criteria_Validator\bin\Debug\Criteria_Validator.exe
+C:\Users\khalid\source\repos\VJs-project\Criteria_Validator\bin\Debug\Criteria_Validator.pdb
+C:\Users\khalid\source\repos\VJs-project\Criteria_Validator\obj\Debug\Criteria_Validator.csprojAssemblyReference.cache
+C:\Users\khalid\source\repos\VJs-project\Criteria_Validator\obj\Debug\Criteria_Validator.CriteriaValidator.resources
+C:\Users\khalid\source\repos\VJs-project\Criteria_Validator\obj\Debug\Criteria_Validator.Properties.Resources.resources
+C:\Users\khalid\source\repos\VJs-project\Criteria_Validator\obj\Debug\Criteria_Validator.csproj.GenerateResource.cache
+C:\Users\khalid\source\repos\VJs-project\Criteria_Validator\obj\Debug\Criteria_Validator.csproj.CoreCompileInputs.cache
+C:\Users\khalid\source\repos\VJs-project\Criteria_Validator\obj\Debug\Criteria_Validator.exe
+C:\Users\khalid\source\repos\VJs-project\Criteria_Validator\obj\Debug\Criteria_Validator.pdb
+C:\Users\khalid\source\repos\VJs-project\Criteria_Validator\bin\Debug\GemBox.Spreadsheet.dll
+C:\Users\khalid\source\repos\VJs-project\Criteria_Validator\bin\Debug\GemBox.Spreadsheet.xml
+C:\Users\khalid\source\repos\VJs-project\Criteria_Validator\obj\Debug\Criteria_Validator.csproj.CopyComplete

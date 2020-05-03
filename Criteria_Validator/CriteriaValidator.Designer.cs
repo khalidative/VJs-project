@@ -31,13 +31,42 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.attachFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enterDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editEmailListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btn_DataRecords_SendEmails = new System.Windows.Forms.Button();
+            this.btn_DataRecords_Calculate = new System.Windows.Forms.Button();
+            this.btn_DataRecords_Refresh = new System.Windows.Forms.Button();
+            this.dgv_DataRecords = new System.Windows.Forms.DataGridView();
+            this.ElementId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FamilyandType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Area = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Volume = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaterialName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CurrentStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LeadTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AverageDailyUsage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaxDailyUsage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaxLeadTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AverageLeadTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalDuration = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateofOrdering = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReorderPoint = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.YesorNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btn_EmailList_PingAll = new System.Windows.Forms.Button();
+            this.btn_EmailList_Save = new System.Windows.Forms.Button();
+            this.btn_EmailList_Refresh = new System.Windows.Forms.Button();
+            this.dgv_EmailList = new System.Windows.Forms.DataGridView();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btn_Validate = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -69,22 +98,18 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.dgv_EmailList = new System.Windows.Forms.DataGridView();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EmailIds = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Subject = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Message = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_DataRecords)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_EmailList)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_EmailList)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -102,8 +127,7 @@
             // toolsToolStripMenuItem
             // 
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.importFileToolStripMenuItem,
-            this.attachFileToolStripMenuItem});
+            this.importFileToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.toolsToolStripMenuItem.Text = "&Tools";
@@ -113,12 +137,6 @@
             this.importFileToolStripMenuItem.Name = "importFileToolStripMenuItem";
             this.importFileToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.importFileToolStripMenuItem.Text = "&Import File";
-            // 
-            // attachFileToolStripMenuItem
-            // 
-            this.attachFileToolStripMenuItem.Name = "attachFileToolStripMenuItem";
-            this.attachFileToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
-            this.attachFileToolStripMenuItem.Text = "Attach File";
             // 
             // editToolStripMenuItem
             // 
@@ -157,16 +175,265 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 24);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(800, 434);
             this.tabControl1.TabIndex = 3;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.btn_DataRecords_SendEmails);
+            this.tabPage4.Controls.Add(this.btn_DataRecords_Calculate);
+            this.tabPage4.Controls.Add(this.btn_DataRecords_Refresh);
+            this.tabPage4.Controls.Add(this.dgv_DataRecords);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(792, 408);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Reorder Point Validation";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // btn_DataRecords_SendEmails
+            // 
+            this.btn_DataRecords_SendEmails.Enabled = false;
+            this.btn_DataRecords_SendEmails.Location = new System.Drawing.Point(523, 379);
+            this.btn_DataRecords_SendEmails.Name = "btn_DataRecords_SendEmails";
+            this.btn_DataRecords_SendEmails.Size = new System.Drawing.Size(107, 23);
+            this.btn_DataRecords_SendEmails.TabIndex = 6;
+            this.btn_DataRecords_SendEmails.Text = "Send Emails";
+            this.btn_DataRecords_SendEmails.UseVisualStyleBackColor = true;
+            this.btn_DataRecords_SendEmails.Click += new System.EventHandler(this.btn_DataRecords_SendEmails_Click);
+            // 
+            // btn_DataRecords_Calculate
+            // 
+            this.btn_DataRecords_Calculate.Location = new System.Drawing.Point(636, 379);
+            this.btn_DataRecords_Calculate.Name = "btn_DataRecords_Calculate";
+            this.btn_DataRecords_Calculate.Size = new System.Drawing.Size(150, 23);
+            this.btn_DataRecords_Calculate.TabIndex = 5;
+            this.btn_DataRecords_Calculate.Text = "Calculate Reorder Point";
+            this.btn_DataRecords_Calculate.UseVisualStyleBackColor = true;
+            this.btn_DataRecords_Calculate.Click += new System.EventHandler(this.btn_DataRecords_Calculate_Click);
+            // 
+            // btn_DataRecords_Refresh
+            // 
+            this.btn_DataRecords_Refresh.Location = new System.Drawing.Point(8, 379);
+            this.btn_DataRecords_Refresh.Name = "btn_DataRecords_Refresh";
+            this.btn_DataRecords_Refresh.Size = new System.Drawing.Size(75, 23);
+            this.btn_DataRecords_Refresh.TabIndex = 4;
+            this.btn_DataRecords_Refresh.Text = "Refresh";
+            this.btn_DataRecords_Refresh.UseVisualStyleBackColor = true;
+            this.btn_DataRecords_Refresh.Click += new System.EventHandler(this.btn_DataRecords_Refresh_Click);
+            // 
+            // dgv_DataRecords
+            // 
+            this.dgv_DataRecords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_DataRecords.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ElementId,
+            this.Name,
+            this.FamilyandType,
+            this.Area,
+            this.Volume,
+            this.StartDate,
+            this.EndDate,
+            this.MaterialName,
+            this.CurrentStock,
+            this.LeadTime,
+            this.AverageDailyUsage,
+            this.MaxDailyUsage,
+            this.MaxLeadTime,
+            this.AverageLeadTime,
+            this.TotalDuration,
+            this.DateofOrdering,
+            this.ReorderPoint,
+            this.YesorNo});
+            this.dgv_DataRecords.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgv_DataRecords.Location = new System.Drawing.Point(3, 3);
+            this.dgv_DataRecords.Name = "dgv_DataRecords";
+            this.dgv_DataRecords.Size = new System.Drawing.Size(786, 364);
+            this.dgv_DataRecords.TabIndex = 0;
+            // 
+            // ElementId
+            // 
+            this.ElementId.HeaderText = "ElementId";
+            this.ElementId.Name = "ElementId";
+            this.ElementId.ReadOnly = true;
+            // 
+            // Name
+            // 
+            this.Name.HeaderText = "Name";
+            this.Name.Name = "Name";
+            this.Name.ReadOnly = true;
+            // 
+            // FamilyandType
+            // 
+            this.FamilyandType.HeaderText = "Family and Type";
+            this.FamilyandType.Name = "FamilyandType";
+            this.FamilyandType.ReadOnly = true;
+            // 
+            // Area
+            // 
+            this.Area.HeaderText = "Area";
+            this.Area.Name = "Area";
+            this.Area.ReadOnly = true;
+            // 
+            // Volume
+            // 
+            this.Volume.HeaderText = "Volume";
+            this.Volume.Name = "Volume";
+            this.Volume.ReadOnly = true;
+            // 
+            // StartDate
+            // 
+            this.StartDate.HeaderText = "Start Date";
+            this.StartDate.Name = "StartDate";
+            this.StartDate.ReadOnly = true;
+            // 
+            // EndDate
+            // 
+            this.EndDate.HeaderText = "End Date";
+            this.EndDate.Name = "EndDate";
+            this.EndDate.ReadOnly = true;
+            // 
+            // MaterialName
+            // 
+            this.MaterialName.HeaderText = "Material Name";
+            this.MaterialName.Name = "MaterialName";
+            this.MaterialName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.MaterialName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // CurrentStock
+            // 
+            this.CurrentStock.HeaderText = "Current Stock";
+            this.CurrentStock.Name = "CurrentStock";
+            // 
+            // LeadTime
+            // 
+            this.LeadTime.HeaderText = "Lead Time";
+            this.LeadTime.Name = "LeadTime";
+            // 
+            // AverageDailyUsage
+            // 
+            this.AverageDailyUsage.HeaderText = "Average Daily Usage";
+            this.AverageDailyUsage.Name = "AverageDailyUsage";
+            // 
+            // MaxDailyUsage
+            // 
+            this.MaxDailyUsage.HeaderText = "Max Daily Usage";
+            this.MaxDailyUsage.Name = "MaxDailyUsage";
+            // 
+            // MaxLeadTime
+            // 
+            this.MaxLeadTime.HeaderText = "Max Lead Time";
+            this.MaxLeadTime.Name = "MaxLeadTime";
+            // 
+            // AverageLeadTime
+            // 
+            this.AverageLeadTime.HeaderText = "Average Lead Time";
+            this.AverageLeadTime.Name = "AverageLeadTime";
+            // 
+            // TotalDuration
+            // 
+            this.TotalDuration.HeaderText = "Total Duration";
+            this.TotalDuration.Name = "TotalDuration";
+            this.TotalDuration.ReadOnly = true;
+            // 
+            // DateofOrdering
+            // 
+            this.DateofOrdering.HeaderText = "Date of Ordering";
+            this.DateofOrdering.Name = "DateofOrdering";
+            this.DateofOrdering.ReadOnly = true;
+            // 
+            // ReorderPoint
+            // 
+            this.ReorderPoint.HeaderText = "Reorder Point";
+            this.ReorderPoint.Name = "ReorderPoint";
+            this.ReorderPoint.ReadOnly = true;
+            // 
+            // YesorNo
+            // 
+            this.YesorNo.HeaderText = "Yes or No";
+            this.YesorNo.Name = "YesorNo";
+            this.YesorNo.ReadOnly = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.btn_EmailList_PingAll);
+            this.tabPage2.Controls.Add(this.btn_EmailList_Save);
+            this.tabPage2.Controls.Add(this.btn_EmailList_Refresh);
+            this.tabPage2.Controls.Add(this.dgv_EmailList);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(792, 408);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Edit e-mail List";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btn_EmailList_PingAll
+            // 
+            this.btn_EmailList_PingAll.Location = new System.Drawing.Point(506, 379);
+            this.btn_EmailList_PingAll.Name = "btn_EmailList_PingAll";
+            this.btn_EmailList_PingAll.Size = new System.Drawing.Size(116, 23);
+            this.btn_EmailList_PingAll.TabIndex = 4;
+            this.btn_EmailList_PingAll.Text = "Ping EmailIds";
+            this.btn_EmailList_PingAll.UseVisualStyleBackColor = true;
+            this.btn_EmailList_PingAll.Click += new System.EventHandler(this.btn_EmailList_PingAll_Click);
+            // 
+            // btn_EmailList_Save
+            // 
+            this.btn_EmailList_Save.Location = new System.Drawing.Point(709, 379);
+            this.btn_EmailList_Save.Name = "btn_EmailList_Save";
+            this.btn_EmailList_Save.Size = new System.Drawing.Size(75, 23);
+            this.btn_EmailList_Save.TabIndex = 3;
+            this.btn_EmailList_Save.Text = "Save";
+            this.btn_EmailList_Save.UseVisualStyleBackColor = true;
+            this.btn_EmailList_Save.Click += new System.EventHandler(this.btn_EmailList_Save_Click);
+            // 
+            // btn_EmailList_Refresh
+            // 
+            this.btn_EmailList_Refresh.Location = new System.Drawing.Point(628, 379);
+            this.btn_EmailList_Refresh.Name = "btn_EmailList_Refresh";
+            this.btn_EmailList_Refresh.Size = new System.Drawing.Size(75, 23);
+            this.btn_EmailList_Refresh.TabIndex = 2;
+            this.btn_EmailList_Refresh.Text = "Refresh";
+            this.btn_EmailList_Refresh.UseVisualStyleBackColor = true;
+            this.btn_EmailList_Refresh.Click += new System.EventHandler(this.btn_EmailList_Refresh_Click);
+            // 
+            // dgv_EmailList
+            // 
+            this.dgv_EmailList.AllowDrop = true;
+            this.dgv_EmailList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_EmailList.Location = new System.Drawing.Point(3, 3);
+            this.dgv_EmailList.Name = "dgv_EmailList";
+            this.dgv_EmailList.Size = new System.Drawing.Size(783, 370);
+            this.dgv_EmailList.TabIndex = 1;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.dataGridView1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(792, 408);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Import Files";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(786, 402);
+            this.dataGridView1.TabIndex = 0;
             // 
             // tabPage1
             // 
@@ -177,7 +444,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(792, 408);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Validate Parameters";
+            this.tabPage1.Text = "Validation Testing";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // btn_Validate
@@ -495,74 +762,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Unit of Measurement";
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.dgv_EmailList);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(792, 408);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Edit e-mail List";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(792, 408);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Import File";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(792, 408);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Attach File";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // dgv_EmailList
-            // 
-            this.dgv_EmailList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_EmailList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Name,
-            this.EmailIds,
-            this.Subject,
-            this.Message});
-            this.dgv_EmailList.Location = new System.Drawing.Point(3, 3);
-            this.dgv_EmailList.Name = "dgv_EmailList";
-            this.dgv_EmailList.Size = new System.Drawing.Size(786, 402);
-            this.dgv_EmailList.TabIndex = 1;
-            // 
-            // Name
-            // 
-            this.Name.HeaderText = "Name";
-            this.Name.Name = "Name";
-            this.Name.Width = 150;
-            // 
-            // EmailIds
-            // 
-            this.EmailIds.HeaderText = "Email Ids";
-            this.EmailIds.Name = "EmailIds";
-            this.EmailIds.Width = 200;
-            // 
-            // Subject
-            // 
-            this.Subject.HeaderText = "Subject";
-            this.Subject.Name = "Subject";
-            this.Subject.Width = 200;
-            // 
-            // Message
-            // 
-            this.Message.HeaderText = "Message to Send";
-            this.Message.Name = "Message";
-            this.Message.Width = 400;
-            // 
             // CriteriaValidator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -573,17 +772,22 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Text = "Criteria validation";
+            this.Load += new System.EventHandler(this.CriteriaValidator_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_DataRecords)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_EmailList)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_EmailList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -593,7 +797,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem importFileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem attachFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem enterDetailsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editEmailListToolStripMenuItem;
@@ -630,15 +833,37 @@
         private System.Windows.Forms.ComboBox cmb_Input_Material;
         private System.Windows.Forms.ComboBox cmb_Input_Units;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Button btn_Validate;
         private System.Windows.Forms.TextBox txt_Input_DC;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DataGridView dgv_EmailList;
+        private System.Windows.Forms.Button btn_EmailList_Save;
+        private System.Windows.Forms.Button btn_EmailList_Refresh;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Button btn_DataRecords_Calculate;
+        private System.Windows.Forms.Button btn_DataRecords_Refresh;
+        private System.Windows.Forms.DataGridView dgv_DataRecords;
+        private System.Windows.Forms.Button btn_EmailList_PingAll;
+        private System.Windows.Forms.Button btn_DataRecords_SendEmails;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ElementId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EmailIds;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Subject;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Message;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FamilyandType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Area;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Volume;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StartDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EndDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaterialName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CurrentStock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LeadTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AverageDailyUsage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaxDailyUsage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaxLeadTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AverageLeadTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalDuration;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateofOrdering;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReorderPoint;
+        private System.Windows.Forms.DataGridViewTextBoxColumn YesorNo;
     }
 }
 
