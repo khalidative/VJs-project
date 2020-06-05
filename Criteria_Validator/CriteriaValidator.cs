@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Mail;
 using GemBox.Spreadsheet;
+using System.Globalization;
 
 namespace Criteria_Validator
 {
@@ -17,6 +18,10 @@ namespace Criteria_Validator
     {
 
         List<string> ElementsIds = new List<string>();
+        List<string> Areas = new List<string>();
+        List<string> Volumes = new List<string>();
+        List<double> TotalDurations = new List<double>();
+        List<DateTime> DateOfOrderings = new List<DateTime>();
 
         static string smtpAddress = "smtp.gmail.com";
         static int portNumber = 587;
@@ -327,20 +332,42 @@ namespace Criteria_Validator
 
         private void btn_DataRecords_Calculate_Click(object sender, EventArgs e)
         {
-            
-            for(int i = 0; i < dgv_DataRecords.RowCount - 1; i++)
+
+            ElementsIds.Clear();
+            Areas.Clear();
+            Volumes.Clear();
+            TotalDurations.Clear();
+            DateOfOrderings.Clear();
+
+
+            for (int i = 0; i < dgv_DataRecords.RowCount - 1; i++)
             {
-                double CurrentStock = Convert.ToDouble(dgv_DataRecords.Rows[i].Cells["CurrentStock"].Value);
-                double LeadTime = Convert.ToDouble(dgv_DataRecords.Rows[i].Cells["LeadTime"].Value);
-                double AverageDailyUsage = Convert.ToDouble(dgv_DataRecords.Rows[i].Cells["AverageDailyUsage"].Value);
-                double MaxDailyUsage = Convert.ToDouble(dgv_DataRecords.Rows[i].Cells["MaxDailyUsage"].Value);
-                double MaxLeadTime = Convert.ToDouble(dgv_DataRecords.Rows[i].Cells["MaxLeadTime"].Value);
-                double AverageLeadTime = Convert.ToDouble(dgv_DataRecords.Rows[i].Cells["AverageLeadTime"].Value);
+                double CurrentStock = Convert.ToDouble(dgv_DataRecords.Rows[i].Cells["CurrentStock"].Value);//For calcualtion
+                double LeadTime = Convert.ToDouble(dgv_DataRecords.Rows[i].Cells["LeadTime"].Value);//For calcualtion
+                double AverageDailyUsage = Convert.ToDouble(dgv_DataRecords.Rows[i].Cells["AverageDailyUsage"].Value);//For calcualtion
+                double MaxDailyUsage = Convert.ToDouble(dgv_DataRecords.Rows[i].Cells["MaxDailyUsage"].Value);//For calcualtion
+                double MaxLeadTime = Convert.ToDouble(dgv_DataRecords.Rows[i].Cells["MaxLeadTime"].Value);//For calcualtion
+                double AverageLeadTime = Convert.ToDouble(dgv_DataRecords.Rows[i].Cells["AverageLeadTime"].Value);//For calcualtion
 
 
                 int reorder_point = Convert.ToInt32((LeadTime * AverageDailyUsage) + ((MaxDailyUsage * MaxLeadTime) - (AverageDailyUsage * AverageLeadTime)));
 
                 dgv_DataRecords.Rows[i].Cells["ReorderPoint"].Value = reorder_point.ToString();
+
+                string Area = dgv_DataRecords.Rows[i].Cells["Area"].Value.ToString();
+                string Volume = dgv_DataRecords.Rows[i].Cells["Volume"].Value.ToString();
+                string start_date = dgv_DataRecords.Rows[i].Cells["StartDate"].Value.ToString().Split(' ')[0].Replace('-', '/');
+                string end_date = dgv_DataRecords.Rows[i].Cells["EndDate"].Value.ToString().Split(' ')[0].Replace('-', '/');
+                CultureInfo provider = CultureInfo.InvariantCulture;
+                DateTime StartDate = DateTime.ParseExact(start_date, "dd/MM/yyyy", provider);//For calcualtion
+                DateTime EndDate = DateTime.ParseExact(end_date, "dd/MM/yyyy", provider);//For calcualtion
+
+                double TotalDuration = (EndDate - StartDate).TotalDays;
+                dgv_DataRecords.Rows[i].Cells["TotalDuration"].Value = TotalDuration.ToString();
+
+                DateTime DateOfOrdering = StartDate.AddDays(-LeadTime);
+                dgv_DataRecords.Rows[i].Cells["DateofOrdering"].Value = DateOfOrdering.ToString();
+
 
 
                 string YesNo;
@@ -349,12 +376,20 @@ namespace Criteria_Validator
                 {
                     YesNo = "Yes";
                     dgv_DataRecords.Rows[i].Cells["YesorNo"].Value = YesNo;
-                    ElementsIds.Add(dgv_DataRecords.Rows[i].Cells["ElementID"].Value.ToString());
+
+                    ElementsIds.Add(dgv_DataRecords.Rows[i].Cells["ElementId"].Value.ToString());
+                    Areas.Add(dgv_DataRecords.Rows[i].Cells["Area"].Value.ToString());
+                    Volumes.Add(dgv_DataRecords.Rows[i].Cells["Area"].Value.ToString());
+                    TotalDurations.Add(TotalDuration);
+                    DateOfOrderings.Add(DateOfOrdering);
+
+
                     btn_DataRecords_SendEmails.Enabled = true;
                 }
                 else
                 {
                     YesNo = "No";
+                    dgv_DataRecords.Rows[i].Cells["YesorNo"].Value = YesNo;
                 }
 
             }
@@ -375,13 +410,34 @@ namespace Criteria_Validator
                         mail.To.Add(emailToAddress);
 
                         mail.Subject = "REORDER POINT ALERT!";
-                        mail.Body = "The ElementId's that triggered this email are:\n";
+                        mail.Body = "Here is the list of elements and their details:\n";
 
-                        foreach (string item in ElementsIds) // Loop through List with foreach
+
+                        for(int i = 0; i < ElementsIds.Count; i++)
                         {
-                            mail.Body += item;
+                            mail.Body += "ElementID: ";
+                            mail.Body += ElementsIds[i].ToString();
+                            mail.Body += "\t";
+
+                            mail.Body += "Area: ";
+                            mail.Body += Areas[i].ToString();
+                            mail.Body += "\t";
+
+                            mail.Body += "Volume: ";
+                            mail.Body += Volumes[i].ToString();
+                            mail.Body += "\t";
+
+                            mail.Body += "Total Duration: ";
+                            mail.Body += TotalDurations[i].ToString();
+                            mail.Body += "\t";
+
+                            mail.Body += "Date of Ordering: ";
+                            mail.Body += DateOfOrderings[i].ToString();
+
                             mail.Body += "\n";
                         }
+
+                        
 
                         mail.IsBodyHtml = true;
                         //mail.Attachments.Add(new Attachment("D:\\TestFile.txt"));//--Uncomment this to send any attachment  
@@ -407,7 +463,14 @@ namespace Criteria_Validator
         {
             btn_DataRecords_SendEmails.Enabled = false;
 
+            dgv_DataRecords.DataSource = null;
+            dgv_DataRecords.Rows.Clear();
+
             ElementsIds.Clear();
+            Areas.Clear();
+            Volumes.Clear();
+            TotalDurations.Clear();
+            DateOfOrderings.Clear();
 
             // If using Professional version, put your serial key below.
             SpreadsheetInfo.SetLicense("FREE-LIMITED-KEY");
@@ -501,6 +564,11 @@ namespace Criteria_Validator
                 }
 
             }
+        }
+
+        private void dgv_DataRecords_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            btn_DataRecords_SendEmails.Enabled = false;
         }
     }
 }

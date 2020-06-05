@@ -258,6 +258,7 @@
             this.dgv_DataRecords.Name = "dgv_DataRecords";
             this.dgv_DataRecords.Size = new System.Drawing.Size(786, 364);
             this.dgv_DataRecords.TabIndex = 0;
+            this.dgv_DataRecords.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_DataRecords_CellEndEdit);
             // 
             // ElementId
             // 
